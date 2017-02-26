@@ -39,13 +39,24 @@ def play_game(inplist):
     options = elements[1]
     answer = elements[2]
     qutrue = True
-    while (qutrue == True):
+    while (qutrue is True):
         elements = get_question(inplist)
         question = elements[0]
         options = elements[1]
         answer = elements[2]
-        print("SCORE: "+str(score))
-        print(question)
+        print("SCORE: " + str(score))
+        if (len(question) > 118):
+            numoflines = len(question) // 118
+            while(numoflines >= 0):
+                par1 = question[:118]
+                question = question[118:]
+                if (par1[-1] != " " and question[0] != " "):
+                    par1 = par1 + "-"
+                print(par1)
+                numoflines -= 1
+
+        else:
+            print(question)
         for index in range(0, len(options)):
             print(options[index])
         usans = input("Your answer: ")
@@ -56,7 +67,7 @@ def play_game(inplist):
             score += 1
         else:
             print("FALSE")
-            print("The Correct Answer was: "+answer)
+            print("The Correct Answer was: " + answer)
             qutrue = False
         print("*----------------------------------*")
 
