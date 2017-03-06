@@ -26,7 +26,7 @@ def get_question(qulist):
     quelements = quest.split("///")
     main_question = quelements[0]
     q2elements = quelements[1].split("||")
-    answer = q2elements[-1].lstrip()
+    answer = q2elements[-1].strip()
     options = q2elements[0].split("//")
     finreturn = [main_question, options, answer]
     return finreturn
